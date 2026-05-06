@@ -1,0 +1,388 @@
+# Copyright (C) 2024 Sumeet Dabral
+# This file is distributed under the same license as the DP-Forms-var01 plugin.
+# Sumeet Dabral <oliver@1apollo.co>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DP-Forms-var01 1.1.0\n"
+"Report-Msgid-Bugs-To: https://1apollo.co/\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.x\n"
+"X-Domain: wpfb\n"
+
+#. Plugin Name of the plugin
+msgid "DP-Forms-var01"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://1apollo.co/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Drag-and-drop form builder with Brevo transactional email, Media Library file uploads, and a full submissions admin viewer."
+msgstr ""
+
+#. Author of the plugin
+msgid "Sumeet Dabral"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://1apollo.co/"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Text"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Email"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Select"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "File Upload"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "URL"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Phone"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Number"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Date"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Textarea"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Radio"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Checkboxes"
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s is required."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be a valid email address."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s contains an invalid selection."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be a valid URL."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be 30 characters or fewer."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be a valid phone number."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be a valid number."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%1$s must be at least %2$s."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%1$s must be at most %2$s."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%s must be a valid date."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%1$s must be on or after %2$s."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "%1$s must be on or before %2$s."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Field %d is missing a valid id."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Field %d has an unrecognized type."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Field %d must have a label."
+msgstr ""
+
+#: includes/support/class-wpfb-field-types.php
+msgid "Field %d must have at least one option."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "No form ID specified."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "Form not found."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "Form configuration error."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "This field is required."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "File size must not exceed %d MB."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "File type is not allowed."
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "Submitting\xe2\x80\xa6"
+msgstr ""
+
+#: includes/frontend/class-wpfb-shortcode.php
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: includes/frontend/class-wpfb-submission-handler.php
+msgid "Invalid form."
+msgstr ""
+
+#: includes/frontend/class-wpfb-submission-handler.php
+msgid "Please fix the errors below."
+msgstr ""
+
+#: includes/frontend/class-wpfb-submission-handler.php
+msgid "Thank you! Your submission has been received."
+msgstr ""
+
+#: includes/mail/class-wpfb-brevo-mailer.php
+msgid "Brevo API key is not configured."
+msgstr ""
+
+#: includes/mail/class-wpfb-brevo-mailer.php
+msgid "No recipients configured."
+msgstr ""
+
+#: includes/mail/class-wpfb-brevo-mailer.php
+msgid "New submission: %s"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "DP-Forms-var01"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "DP-Forms-var01"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "All Forms"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "Add New Form"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "Submissions"
+msgstr ""
+
+#: includes/admin/class-wpfb-menu.php
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Brevo API Settings"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "API Key"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "From Email"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "From Name"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Default Admin Recipients"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "File Upload Settings"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Allowed Extensions"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Max Upload Size (MB)"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Data Management"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Delete Data on Uninstall"
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Remove all plugin data (tables + settings) when the plugin is deleted."
+msgstr ""
+
+#: includes/admin/class-wpfb-settings-page.php
+msgid "Warning: this cannot be undone."
+msgstr ""
+
+#: includes/admin/class-wpfb-submissions-page.php
+msgid "Submissions"
+msgstr ""
+
+#: includes/admin/class-wpfb-submissions-page.php
+msgid "Export CSV"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Edit Form"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Add New Form"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Shortcode:"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Copy"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Form Title"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Notification Emails"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Comma-separated. Leave blank to use the global default."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Email Subject"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Leave blank to auto-generate from form title."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Attach Files"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Attach uploaded files to the notification email"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Form Fields"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Add field:"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "No fields added yet. Use the buttons above to add fields."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Form Layout"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "HTML Before Fields"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "HTML rendered just inside the &lt;form&gt; tag, before the fields. Allowed tags: divs, paragraphs, headings, etc. (script/iframe stripped)."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "HTML After Fields"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "HTML rendered after the submit button, just before the closing &lt;/form&gt;."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Form CSS Class"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Space-separated class names applied to the &lt;form&gt; element."
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Save Form"
+msgstr ""
+
+#: views/admin/form-builder.php
+msgid "Your shortcode:"
+msgstr ""

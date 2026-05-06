@@ -1,0 +1,262 @@
+/**
+ * DP-Forms-var01 — Admin Styles
+ *
+ * Scoped to .wpfb-* classes to avoid conflicts with WP core admin styles.
+ *
+ * @package WPFB
+ */
+
+/* -------------------------------------------------------------------------
+ * Builder layout
+ * ---------------------------------------------------------------------- */
+#wpfb-builder-wrap {
+	max-width: 860px;
+}
+
+.wpfb-add-field-buttons {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 16px 0;
+	flex-wrap: wrap;
+}
+
+.wpfb-add-field-buttons span {
+	font-weight: 600;
+	color: #3c434a;
+}
+
+/* -------------------------------------------------------------------------
+ * Field list
+ * ---------------------------------------------------------------------- */
+.wpfb-fields-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.wpfb-fields-list:empty {
+	display: none;
+}
+
+.wpfb-field-row {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 12px 14px;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
+	transition: background 0.15s;
+}
+
+.wpfb-field-row:last-child {
+	border-bottom: none;
+}
+
+.wpfb-field-row.wpfb-dragging {
+	background: #f0f6fc;
+	opacity: 0.75;
+}
+
+.wpfb-drag-handle {
+	cursor: grab;
+	color: #a7aaad;
+	font-size: 20px;
+	flex-shrink: 0;
+	padding-top: 4px;
+}
+
+.wpfb-drag-handle:active {
+	cursor: grabbing;
+}
+
+.wpfb-field-type-badge {
+	display: inline-block;
+	padding: 2px 7px;
+	background: #2271b1;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	flex-shrink: 0;
+	margin-top: 4px;
+}
+
+.wpfb-field-label {
+	flex: 1 1 200px;
+	max-width: 340px;
+}
+
+.wpfb-required-wrap {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 13px;
+	color: #3c434a;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.wpfb-remove-field {
+	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.wpfb-field-options {
+	flex-basis: 100%;
+	padding-left: 28px;
+}
+
+.wpfb-field-options label {
+	display: block;
+	font-size: 12px;
+	color: #646970;
+	margin-bottom: 4px;
+}
+
+.wpfb-select-options {
+	width: 100%;
+	max-width: 380px;
+	font-size: 13px;
+	padding: 4px;
+	resize: vertical;
+}
+
+/* -------------------------------------------------------------------------
+ * Shortcode display
+ * ---------------------------------------------------------------------- */
+.wpfb-shortcode-notice {
+	margin: 12px 0 20px;
+}
+
+.wpfb-shortcode-display,
+code.wpfb-shortcode-display {
+	background: #f0f0f1;
+	padding: 3px 7px;
+	border-radius: 3px;
+	font-size: 13px;
+	user-select: all;
+}
+
+.wpfb-shortcode-result {
+	margin-top: 16px;
+	padding: 12px 16px;
+	background: #edfaef;
+	border-left: 4px solid #00a32a;
+	border-radius: 0 4px 4px 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+/* -------------------------------------------------------------------------
+ * Save status
+ * ---------------------------------------------------------------------- */
+.wpfb-save-status {
+	display: inline-block;
+	margin-left: 12px;
+	font-size: 13px;
+}
+
+.wpfb-status-success { color: #00a32a; }
+.wpfb-status-error   { color: #d63638; }
+.wpfb-status-info    { color: #3c434a; }
+
+/* -------------------------------------------------------------------------
+ * Builder meta table
+ * ---------------------------------------------------------------------- */
+.wpfb-builder-meta th {
+	width: 200px;
+}
+
+/* -------------------------------------------------------------------------
+ * Submissions list: mail status badges
+ * ---------------------------------------------------------------------- */
+.wpfb-mail-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+
+.wpfb-status-sent    { background: #d7efe0; color: #00652d; }
+.wpfb-status-failed  { background: #fde8e8; color: #8a1a1a; }
+.wpfb-status-pending { background: #fef8e8; color: #6f5b04; }
+
+/* -------------------------------------------------------------------------
+ * Submission detail
+ * ---------------------------------------------------------------------- */
+.wpfb-detail-meta th {
+	background: #f6f7f7;
+	width: 160px;
+}
+
+.wpfb-payload-table th {
+	background: #f6f7f7;
+}
+
+/* -------------------------------------------------------------------------
+ * No fields notice
+ * ---------------------------------------------------------------------- */
+#wpfb-no-fields-notice {
+	padding: 24px;
+	text-align: center;
+	color: #888;
+	border: 2px dashed #c3c4c7;
+	border-radius: 4px;
+	margin-top: 8px;
+}
+
+/* -------------------------------------------------------------------------
+ * Advanced details/summary block (per-field wrapper inputs)
+ * ---------------------------------------------------------------------- */
+.wpfb-advanced-block {
+	flex-basis: 100%;
+	padding-left: 28px;
+	margin-top: 4px;
+}
+
+.wpfb-advanced-block summary {
+	cursor: pointer;
+	font-size: 12px;
+	color: #2271b1;
+	display: inline;
+	user-select: none;
+}
+
+.wpfb-advanced-block summary:hover {
+	text-decoration: underline;
+}
+
+.wpfb-advanced-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px 16px;
+	margin-top: 8px;
+}
+
+.wpfb-advanced-label {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	color: #646970;
+	gap: 3px;
+}
+
+.wpfb-advanced-label input[type="text"],
+.wpfb-advanced-label textarea {
+	width: 100%;
+	max-width: 340px;
+	font-size: 13px;
+	padding: 4px;
+	resize: vertical;
+	box-sizing: border-box;
+}

@@ -1,0 +1,37 @@
+# Claude Code internal state — never commit.
+# Contains agent memory, session caches, per-machine tooling state.
+.claude/
+
+# Build artifacts
+*.zip
+*.tar.gz
+node_modules/
+vendor/
+
+# OS / system
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Logs and dumps
+*.log
+debug.log
+error_log
+
+# Environment / secrets
+.env
+.env.local
+*.local
+
+# WordPress local dev
+wp-config-local.php

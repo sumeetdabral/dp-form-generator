@@ -1,0 +1,247 @@
+/**
+ * DP-Forms-var01 — Frontend Form Styles
+ *
+ * Clean, professional, mobile-responsive.
+ * Single column on small screens; labels above inputs; decent spacing.
+ * All selectors scoped to .wpfb-* to avoid theme conflicts.
+ *
+ * @package WPFB
+ */
+
+/* -------------------------------------------------------------------------
+ * Form wrapper
+ * ---------------------------------------------------------------------- */
+.wpfb-form-wrap {
+	max-width: 640px;
+	width: 100%;
+	margin: 0 auto;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------
+ * Form fields — shared styles
+ * ---------------------------------------------------------------------- */
+.wpfb-field {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.wpfb-field label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 5px;
+	font-size: 0.9375rem;
+	color: #1d2327;
+	line-height: 1.4;
+}
+
+.wpfb-required {
+	color: #d63638;
+	margin-left: 2px;
+}
+
+.wpfb-field input[type="text"],
+.wpfb-field input[type="email"],
+.wpfb-field input[type="url"],
+.wpfb-field input[type="tel"],
+.wpfb-field input[type="number"],
+.wpfb-field input[type="date"],
+.wpfb-field select,
+.wpfb-field textarea {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 13px;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #1d2327;
+	background: #fff;
+	border: 1.5px solid #8c8f94;
+	border-radius: 4px;
+	transition: border-color 0.15s, box-shadow 0.15s;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.wpfb-field input[type="text"]:focus,
+.wpfb-field input[type="email"]:focus,
+.wpfb-field input[type="url"]:focus,
+.wpfb-field input[type="tel"]:focus,
+.wpfb-field input[type="number"]:focus,
+.wpfb-field input[type="date"]:focus,
+.wpfb-field select:focus,
+.wpfb-field textarea:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba( 34, 113, 177, 0.25 );
+	outline: none;
+}
+
+/* Select arrow */
+.wpfb-field-select select {
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238c8f94' d='M6 8L0 0h12z'/%3E%3C/svg%3E" );
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	padding-right: 34px;
+	cursor: pointer;
+}
+
+/* File input */
+.wpfb-field input[type="file"] {
+	padding: 8px 0;
+	font-size: 0.9375rem;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.wpfb-file-hint {
+	font-size: 0.8125rem;
+	color: #646970;
+	margin-top: 4px;
+	margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Validation states
+ * ---------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------
+ * Radio and checkbox option lists
+ * ---------------------------------------------------------------------- */
+.wpfb-fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wpfb-field-legend {
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: #1d2327;
+	margin-bottom: 8px;
+	display: block;
+}
+
+.wpfb-radio-group,
+.wpfb-checkbox-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.wpfb-radio-label,
+.wpfb-checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 400;
+	font-size: 0.9375rem;
+	color: #1d2327;
+	cursor: pointer;
+}
+
+.wpfb-radio-label input[type="radio"],
+.wpfb-checkbox-label input[type="checkbox"] {
+	width: auto;
+	margin: 0;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------
+ * Validation states
+ * ---------------------------------------------------------------------- */
+.wpfb-field--error input,
+.wpfb-field--error select,
+.wpfb-field--error textarea {
+	border-color: #d63638;
+	box-shadow: 0 0 0 2px rgba( 214, 54, 56, 0.2 );
+}
+
+.wpfb-field-error {
+	display: block;
+	color: #d63638;
+	font-size: 0.8125rem;
+	margin-top: 5px;
+	min-height: 1em;
+}
+
+/* -------------------------------------------------------------------------
+ * Submit button
+ * ---------------------------------------------------------------------- */
+.wpfb-form-footer {
+	margin-top: 8px;
+}
+
+.wpfb-submit-btn {
+	display: inline-block;
+	padding: 11px 28px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #fff;
+	background: #2271b1;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.15s, transform 0.1s;
+	line-height: 1.4;
+}
+
+.wpfb-submit-btn:hover {
+	background: #135e96;
+}
+
+.wpfb-submit-btn:active {
+	transform: scale( 0.98 );
+}
+
+.wpfb-submit-btn:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+/* -------------------------------------------------------------------------
+ * Inline success / error messages
+ * ---------------------------------------------------------------------- */
+.wpfb-form-messages {
+	margin-top: 18px;
+	padding: 12px 16px;
+	border-radius: 4px;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+.wpfb-message-success {
+	background: #edfaef;
+	color: #00652d;
+	border: 1px solid #b8e6c1;
+}
+
+.wpfb-message-error {
+	background: #fde8e8;
+	color: #8a1a1a;
+	border: 1px solid #f5aeae;
+}
+
+/* -------------------------------------------------------------------------
+ * Error output for shortcode errors (form not found, etc.)
+ * ---------------------------------------------------------------------- */
+.wpfb-error {
+	color: #d63638;
+	font-style: italic;
+}
+
+/* -------------------------------------------------------------------------
+ * Responsive — single column on small screens
+ * ---------------------------------------------------------------------- */
+@media ( max-width: 600px ) {
+	.wpfb-form-wrap {
+		padding: 0 4px;
+	}
+
+	.wpfb-submit-btn {
+		width: 100%;
+		text-align: center;
+	}
+}
