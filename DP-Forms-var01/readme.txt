@@ -21,7 +21,7 @@ Key features:
 * **Brevo email delivery** — Notifications sent via Brevo's `POST /v3/smtp/email` API. Uploaded files are attached (up to 9.5 MB base64 total). Reply-To is automatically set to the submitter's email address.
 * **Submissions viewer** — Admin list with per-form filtering, pagination, date sorting, and CSV export. Full detail view shows all fields and uploaded files. Resend action retries failed emails.
 * **Media Library uploads** — Every uploaded file becomes a private WordPress attachment. Mime allowlist and file size cap are configurable in Settings.
-* **Security hardened** — Nonce verification on every action, capability checks, prepared SQL, mime-type verification with double-extension rejection, XOR-obfuscated API key storage, CRLF-stripped email headers.
+* **Security hardened** — Nonce verification on every action, capability checks, prepared SQL, mime-type verification with double-extension rejection, optional `wp-config.php` API key storage, CRLF-stripped email headers.
 * **No build step** — Drop into any WordPress install and activate. No Composer, no npm.
 
 == Installation ==
@@ -44,7 +44,7 @@ By default: pdf, jpg, jpeg, png, doc, docx. You can change the allowed extension
 
 = Is the Brevo API key stored securely? =
 
-The key is stored XOR-obfuscated in the database (not plaintext). This prevents casual disclosure via a DB dump or an options-viewer plugin. It is obfuscation, not encryption — anyone with access to both the database and wp-config.php salts could recover it. For higher security, consider storing the key in wp-config.php as a constant and pulling it in via a filter.
+By default the key is stored in the database (in the `wpfb_settings` option), which is standard practice for WordPress plugins that integrate third-party APIs. A leaked key only allows sending email through your Brevo account and can be revoked/regenerated instantly in the Brevo dashboard. For stronger security, define the key in `wp-config.php` instead — `define( 'WPFB_BREVO_API_KEY', 'your-key-here' );`. When that constant is present it takes precedence, the key is kept out of the database entirely, and the Settings field is disabled.
 
 = Can I delete all data when I uninstall? =
 

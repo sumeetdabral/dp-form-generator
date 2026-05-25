@@ -45,7 +45,7 @@ class Brevo_Mailer implements Mailer_Interface {
 	 */
 	public function send( int $form_id, array $payload, array $attachment_ids ): array {
 		$settings = Options::get();
-		$api_key  = Options::deobfuscate( $settings['brevo_api_key'] );
+		$api_key  = Options::get_api_key();
 
 		if ( '' === $api_key ) {
 			Logger::error( 'Brevo mailer: API key is not configured.', [ 'form_id' => $form_id ] );

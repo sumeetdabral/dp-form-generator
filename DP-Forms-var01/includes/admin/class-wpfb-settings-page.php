@@ -8,9 +8,11 @@
  *
  * API key behaviour:
  *  - The field is type="password".
- *  - If the field is submitted empty, the existing (obfuscated) key is kept.
- *  - If a new value is typed, it is obfuscated before save.
- *  - The raw key is NEVER written back to the field value.
+ *  - If the field is submitted empty, the existing stored key is kept.
+ *  - If a new value is typed, it is stored as plaintext (sanitized).
+ *  - The stored key is NEVER written back to the field value.
+ *  - If WPFB_BREVO_API_KEY is defined in wp-config.php it takes precedence and
+ *    the field is disabled.
  *
  * @package WPFB
  */
@@ -148,9 +150,9 @@ class Settings_Page {
 
 		// API key: only update if a new non-empty value was submitted.
 		if ( ! empty( $input['brevo_api_key'] ) ) {
-			$current['brevo_api_key'] = Options::obfuscate( sanitize_text_field( $input['brevo_api_key'] ) );
+			$current['brevo_api_key'] = sanitize_text_field( $input['brevo_api_key'] );
 		}
-		// If blank, $current['brevo_api_key'] keeps the existing obfuscated value.
+		// If blank, $current['brevo_api_key'] keeps the existing stored value.
 
 		$current['from_email'] = sanitize_email( $input['from_email'] ?? '' );
 		$current['from_name']  = sanitize_text_field( $input['from_name'] ?? '' );
@@ -194,7 +196,7 @@ class Settings_Page {
 	 * Prints the Brevo section description.
 	 */
 	public function section_brevo_description(): void {
-		echo '<p>' . esc_html__( 'Connect to Brevo\'s transactional email API. Your API key is obfuscated in storage — not plaintext.', 'wpfb' ) . '</p>';
+		echo '<p>' . esc_html__( 'Connect to Brevo\'s transactional email API. For stronger security you can define WPFB_BREVO_API_KEY in wp-config.php instead of saving the key here.', 'wpfb' ) . '</p>';
 	}
 
 	// -------------------------------------------------------------------------
@@ -205,12 +207,16 @@ class Settings_Page {
 	 * Renders the API key field.
 	 */
 	public function field_api_key(): void {
-		$settings = Options::get();
-		$has_key  = '' !== $settings['brevo_api_key'];
+		$constant_set = defined( 'WPFB_BREVO_API_KEY' ) && '' !== (string) WPFB_BREVO_API_KEY;
+		$settings     = Options::get();
+		$has_key      = '' !== $settings['brevo_api_key'];
 
-		echo '<input type="password" id="wpfb_brevo_api_key" name="wpfb_settings[brevo_api_key]" value="" autocomplete="new-password" class="regular-text">';
+		echo '<input type="password" id="wpfb_brevo_api_key" name="wpfb_settings[brevo_api_key]" value="" autocomplete="new-password" class="regular-text"'
+			. ( $constant_set ? ' disabled' : '' ) . '>';
 
-		if ( $has_key ) {
+		if ( $constant_set ) {
+			echo '<p class="description">' . esc_html__( 'The API key is defined in wp-config.php (WPFB_BREVO_API_KEY) and takes precedence, so this field is disabled.', 'wpfb' ) . '</p>';
+		} elseif ( $has_key ) {
 			echo '<p class="description">' . esc_html__( 'A key is saved. Leave blank to keep it, or type a new one to replace it.', 'wpfb' ) . '</p>';
 		} else {
 			echo '<p class="description">' . esc_html__( 'Enter your Brevo API key (v3).', 'wpfb' ) . '</p>';

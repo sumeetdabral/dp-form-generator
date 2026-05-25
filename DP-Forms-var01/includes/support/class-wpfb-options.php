@@ -2,10 +2,11 @@
 /**
  * Typed wrapper around get_option/update_option for wpfb_settings.
  *
- * The Brevo API key is stored XOR-obfuscated with wp_salt(). This is NOT
- * encryption — it is obfuscation that prevents casual disclosure via a DB
- * dump or an options-viewer plugin. Anyone with access to wp-config.php salts
- * and the database can recover the key.
+ * The Brevo API key is stored as plaintext in the wpfb_settings option, which
+ * is standard practice for WordPress plugins that integrate third-party APIs.
+ * For stronger protection, define WPFB_BREVO_API_KEY in wp-config.php — when
+ * present it takes precedence over the stored value and the key never touches
+ * the database. See get_api_key().
  *
  * @package WPFB
  */
@@ -71,63 +72,23 @@ class Options {
 		return self::$defaults;
 	}
 
-	// -------------------------------------------------------------------------
-	// API key obfuscation helpers
-	// These wrap the key in XOR+base64 so it is not stored as plaintext in the
-	// options table. This is OBFUSCATION, not encryption — document clearly.
-	// -------------------------------------------------------------------------
-
 	/**
-	 * Obfuscates the API key using XOR against wp_salt('secure_auth').
+	 * Returns the effective Brevo API key.
 	 *
-	 * NOT encryption — this is obfuscation only. Do not treat as secure storage.
+	 * Precedence:
+	 *   1. The WPFB_BREVO_API_KEY constant. Define it in wp-config.php to keep
+	 *      the key out of the database entirely — the more secure option.
+	 *   2. The plaintext value stored in the wpfb_settings option.
 	 *
-	 * @param string $plain_key Raw API key string.
-	 * @return string Base64-encoded obfuscated string.
+	 * @return string The API key, or empty string if none is configured.
 	 */
-	public static function obfuscate( string $plain_key ): string {
-		if ( '' === $plain_key ) {
-			return '';
+	public static function get_api_key(): string {
+		if ( defined( 'WPFB_BREVO_API_KEY' ) && '' !== (string) WPFB_BREVO_API_KEY ) {
+			return (string) WPFB_BREVO_API_KEY;
 		}
 
-		$salt   = wp_salt( 'secure_auth' );
-		$result = '';
-		$salt_len = strlen( $salt );
+		$settings = self::get();
 
-		for ( $i = 0; $i < strlen( $plain_key ); $i++ ) {
-			// XOR each character of the key with the salt, cycling.
-			$result .= chr( ord( $plain_key[ $i ] ) ^ ord( $salt[ $i % $salt_len ] ) );
-		}
-
-		return base64_encode( $result ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
-	}
-
-	/**
-	 * Reverses obfuscate() to return the raw API key.
-	 *
-	 * NOT encryption — this is obfuscation only.
-	 *
-	 * @param string $obfuscated Base64-encoded obfuscated string.
-	 * @return string Raw API key, or empty string on failure.
-	 */
-	public static function deobfuscate( string $obfuscated ): string {
-		if ( '' === $obfuscated ) {
-			return '';
-		}
-
-		$decoded = base64_decode( $obfuscated, true ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-		if ( false === $decoded ) {
-			return '';
-		}
-
-		$salt     = wp_salt( 'secure_auth' );
-		$result   = '';
-		$salt_len = strlen( $salt );
-
-		for ( $i = 0; $i < strlen( $decoded ); $i++ ) {
-			$result .= chr( ord( $decoded[ $i ] ) ^ ord( $salt[ $i % $salt_len ] ) );
-		}
-
-		return $result;
+		return isset( $settings['brevo_api_key'] ) ? (string) $settings['brevo_api_key'] : '';
 	}
 }
